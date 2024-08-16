@@ -23,9 +23,9 @@
     
           <!-- Price and Buy button on the right -->
           <div class="price d-flex flex-column align-items-end">
-            <div *ngIf="product.discountPercentage < 1" class="h6">{{ product.price | currency }}</div>
+            <div *ngIf="product.discountPercentage < 1" class="h6">{{ product.price | currency : 'USD' }}</div>
             <div *ngIf="product.discountPercentage > 1" class="discount">
-              {{ (product.price - ((product.price * product.discountPercentage) / 100)) | currency }}
+              {{ (product.price - ((product.price * product.discountPercentage) / 100)) | currency :'USD' }}
             </div>
             <button class="btn btn-primary mt-2">Buy</button>
           </div>
