@@ -1,1 +1,24 @@
-<p>product-details works!</p>
+<div class="product d-flex align-items-center border p-3">
+    <!-- Image on the left -->
+    <div class="product-image me-3">
+      <img [src]="product.thumbnail" alt="{{ product.title }}" class="img-fluid" style="max-width: 150px;">
+    </div>
+
+    <!-- Details in the middle -->
+    <div class="product-details flex-grow-1">
+      <div class="product-info">
+        <div class="name h5 text-danger">{{ product.title }}</div>
+        <div class="description text-muted">{{ product.description }}</div>
+        <div class="category text-primary">Part Type: {{ product.category }}</div>
+      </div>
+    </div>
+
+    <!-- Price and Buy button on the right -->
+    <div class="price d-flex flex-column align-items-end">
+      <div [ngClass]="getDiscountedClasses(product)"  class="h6">{{ product.price  | currency :'USD'  }}</div>
+      <div *ngIf="product.discountPercentage > 1" class="discount">
+        {{ (product.price - ((product.price * product.discountPercentage) / 100))  | currency :'USD'   }}
+      </div>
+      <button class="btn btn-primary mt-2" (click)="buyButtonClicked(product)">Buy</button>
+    </div>
+  </div>

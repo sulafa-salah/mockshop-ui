@@ -2,7 +2,7 @@ import { Category } from "../enums/category.enum";
 
 export interface IProduct {
     id:                   number;
-    name:                string;
+    title:                string;
     description:          string;
     category:             Category;
     price:                number;

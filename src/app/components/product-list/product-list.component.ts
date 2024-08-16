@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { CommonModule } from '@angular/common';
 import { IProduct } from '../../models/product.model';
+import { ProductDetailsComponent } from "../product-details/product-details.component";
 
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ProductDetailsComponent],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })
@@ -16,6 +17,7 @@ export class ProductListComponent {
   filteredProducts: any[] = [];
   categories: string[] = [];
   selectedCategory: string = '';
+  cart : IProduct[]=[];
 
   constructor(private productService: ProductService) {}
 
@@ -31,7 +33,17 @@ export class ProductListComponent {
       this.categories = categories;
     });
   }
+// getDiscountedClasses(product : IProduct)
+// {
+//   return {strikethrough : product.discountPercentage > 1};
+// }
 
+
+addToCart(product : IProduct){
+  this.cart.push(product);
+  console.log(`product ${product.title} added to cart`);
+
+}
   filterByCategory() {
    return this.selectedCategory ==='' 
    ?this.products

@@ -1,35 +1,15 @@
 <div class="container mt-4">
-  <div class="filters mb-4 d-flex flex-wrap justify-content-between">
-    <a *ngFor="let category of categories" class="btn btn-outline-primary flex-grow-1 m-1" (click)="selectedCategory=category">{{ category }}</a>
-    <a class="btn btn-outline-primary flex-grow-1 m-1" (click)="selectedCategory=''">All</a>
+  <div class="filters mb-4 d-flex flex-wrap  justify-content-between">
+    <a *ngFor="let category of categories" class="btn btn-outline-primary  flex-grow-1 m-1" (click)="selectedCategory=category">{{ category }}</a>
+    <a class="btn btn-outline-primary  flex-grow-1 m-1" (click)="selectedCategory=''">All</a>
   </div>
   
     <ul class="list-unstyled">
       <li class="product-item mb-3" *ngFor="let product of filterByCategory()">
-        <div class="product d-flex align-items-center border p-3">
-          <!-- Image on the left -->
-          <div class="product-image me-3">
-            <img [src]="product.thumbnail" alt="{{ product.name }}" class="img-fluid" style="max-width: 150px;">
-          </div>
-    
-          <!-- Details in the middle -->
-          <div class="product-details flex-grow-1">
-            <div class="product-info">
-              <div class="name h5">{{ product.name }}</div>
-              <div class="description text-muted">{{ product.description }}</div>
-              <div class="category text-primary">Part Type: {{ product.category }}</div>
-            </div>
-          </div>
-    
-          <!-- Price and Buy button on the right -->
-          <div class="price d-flex flex-column align-items-end">
-            <div *ngIf="product.discountPercentage < 1" class="h6">{{ product.price | currency : 'USD' }}</div>
-            <div *ngIf="product.discountPercentage > 1" class="discount">
-              {{ (product.price - ((product.price * product.discountPercentage) / 100)) | currency :'USD' }}
-            </div>
-            <button class="btn btn-primary mt-2">Buy</button>
-          </div>
-        </div>
+      <app-product-details
+       [product]="product" 
+       (buy)="addToCart(product)">
+      </app-product-details>
       </li>
     </ul>
   </div>
