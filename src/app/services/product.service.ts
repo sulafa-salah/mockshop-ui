@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { ApiRoutes } from '../models/ApiRoutes';
+import { IProduct } from '../models/product.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ import { ApiRoutes } from '../models/ApiRoutes';
 export class ProductService {
 
   apiUrl: string = environment.apiUrl;
-   // private apiUrl = 'https://dummyjson.com/products';
+  
   
     constructor(private http: HttpClient) {}
   

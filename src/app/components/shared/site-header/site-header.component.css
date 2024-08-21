@@ -1,0 +1,37 @@
+/* Logo styling */
+.logo {
+  font-family: 'Arial Black', Gadget, sans-serif;
+  font-size: 1.5rem;
+  color: #007bff; /* Bootstrap's primary color */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover effect for the logo */
+.logo:hover {
+  color: #0056b3; /* Darker shade of Bootstrap's primary color */
+  text-decoration: none;
+}
+
+/* Optional: Add padding for a better look */
+.navbar {
+  padding: 1rem 0;
+}
+
+/* Customize link styles */
+.nav-link {
+  padding-right: 15px;
+  padding-left: 15px;
+  color: #343a40;
+  font-weight: bold;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #007bff;
+  text-decoration: none;
+}
+
+
+

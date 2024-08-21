@@ -1,0 +1,24 @@
+<div class="auth-page">
+    <div class="auth-container">
+      <h2 class="form-title">Sign In</h2>
+      <form #signInForm="ngForm" (ngSubmit)="sigIn()">
+        <div class="form-group">
+          <label for="username">User Name</label>
+          <input name="username" required [minlength]="3" #username="ngModel" id="username" [(ngModel)]="credentials.username" class="form-control" placeholder="Enter your username" required />
+          <em class="error" *ngIf="username.errors?.['required'] && username.touched">Username is required</em>
+          <em class="error" *ngIf="username.errors?.['minlength'] && username.touched">Username Must be More than 3</em>
+        </div>
+  
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input name="password" id="password"  required #password="ngModel" type="password" class="form-control" [(ngModel)]="credentials.password" placeholder="Enter your password" required />
+          <em class="error" *ngIf="password.invalid && password.touched">Password is required</em>
+        </div>
+  
+        <button type="submit" [disabled]="signInForm.form.invalid" class="btn btn-primary">Sign In</button>
+  
+        <p class="switch-auth">Don't have an account? <a href="#register">Register here</a></p>
+      </form>
+    </div>
+  </div>
+  

@@ -1,5 +1,5 @@
 import { Component, Input, Output,EventEmitter } from '@angular/core';
-import { IProduct } from '../../models/product.model';
+import { IProduct } from '../../../models/product.model';
 import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-product-details',
@@ -10,10 +10,10 @@ import { CommonModule } from '@angular/common';
 })
 export class ProductDetailsComponent {
 @Input() product! : IProduct;
-@Output() buy =new EventEmitter()
+@Output() buy =new EventEmitter<IProduct>();
 
 buyButtonClicked(product : IProduct){
-  this.buy.emit();
+  this.buy.emit(this.product);
 
 }
 getDiscountedClasses(product : IProduct)

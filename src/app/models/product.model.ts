@@ -18,4 +18,5 @@ export interface IProduct {
     minimumOrderQuantity: number;  
     images:               string[];
     thumbnail:            string;
+    
 }
